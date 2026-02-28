@@ -1,6 +1,8 @@
 # main.py - البوت المتكامل لإدارة المناوبات (نسخة نهائية سريعة)
 
 import logging
+import logging
+import os
 from datetime import datetime, timedelta
 import threading
 import csv
@@ -8,8 +10,11 @@ from io import StringIO
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup, KeyboardButton
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, MessageHandler, filters, ContextTypes
 
-from config import BOT_TOKEN, ADMIN_ID
+from config import ADMIN_ID
 import db
+
+# قراءة توكن البوت من متغير البيئة
+TOKEN = os.getenv("TOKEN")
 
 # إعداد التسجيل
 logging.basicConfig(
@@ -757,7 +762,7 @@ def main():
     print("🚀 جاري تشغيل البوت...")
     
     try:
-        app = Application.builder().token(BOT_TOKEN).build()
+        app = Application.builder().token(TOKEN).build()
         
         app.add_handler(CommandHandler("start", start))
         app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
