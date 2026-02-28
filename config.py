@@ -1,4 +1,4 @@
 # config.py - ملف الإعدادات (لن تحتاج لتعديله بعد الآن)
 
-BOT_TOKEN = "8553407452:AAGIS4k_OOMd593RoS9h4x9Wt7-QKrCHI1E"  # استبدل هذا بالتوكن من BotFather
+BOT_TOKEN = ""  # استبدل هذا بالتوكن من BotFather
 ADMIN_ID = 592614066  # استبدل هذا بمعرف التليجرام الخاص بالمشرف
